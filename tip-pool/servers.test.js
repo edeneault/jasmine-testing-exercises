@@ -34,7 +34,7 @@ describe("updateServerTable test (with set-up and tear down)", () => {
     serverName = serverNameInput.value;
     submitServerInfo();
     const innerDivValue = document.querySelector("#server1");
-    //test
+    //test - note: could aslo use hasOwnProperty
     expect(innerDivValue.firstChild.innerHTML).toEqual("JohnnyCash");
   });
   

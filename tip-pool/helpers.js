@@ -2,13 +2,15 @@
 // accepts 'tipAmt', 'billAmt', 'tipPercent' and sums total from allPayments objects
 function sumPaymentTotal(type) {
   let total = 0;
-
+  console.log(allPayments);
   for (let key in allPayments) {
     let payment = allPayments[key];
+    console.log(key);
+    console.log(allPayments);
 
     total += Number(payment[type]);
   }
-
+console.log('total: ', total);
   return total;
 }
 
