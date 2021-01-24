@@ -40,8 +40,9 @@ describe("updateServerTable test (with set-up and tear down)", () => {
   
   //clean-up
   afterEach(function() {
-    serverNameInput.value = '';
+    // serverNameInput.value = '';
     allServers = {};
+    serverTbody.innerHTML = '';
     serverId = 0;
   });
 });

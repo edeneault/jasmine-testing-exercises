@@ -1,16 +1,13 @@
-
 // accepts 'tipAmt', 'billAmt', 'tipPercent' and sums total from allPayments objects
 function sumPaymentTotal(type) {
   let total = 0;
-  console.log(allPayments);
+
   for (let key in allPayments) {
     let payment = allPayments[key];
-    console.log(key);
-    console.log(allPayments);
 
     total += Number(payment[type]);
   }
-console.log('total: ', total);
+
   return total;
 }
 
@@ -25,4 +22,24 @@ function appendTd(tr, value) {
   newTd.innerText = value;
 
   tr.append(newTd);
+}
+
+// append delete button and click handler for removing server from allServers and DOM td
+function appendDeleteBtn(tr, type) {
+  let newTd = document.createElement('td');
+  newTd.className = 'deleteBtn';
+  newTd.innerText = 'X';
+
+  newTd.addEventListener('click', removeEle);
+
+  tr.append(newTd);
+}
+
+function removeEle(evt) {
+  let ele = evt.target.closest('tr');
+
+  delete allServers[ele.id];
+
+  ele.parentNode.removeChild(ele);
+  updateServerTable();
 }

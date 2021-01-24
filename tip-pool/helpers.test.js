@@ -1,6 +1,4 @@
-describe('helpers.js unit tests', () => {
-    
-    
+describe('helpers.js submitPaymentInfo function', () => {
     
     it('should calculate sum by type in object', () => {
         //intit
@@ -12,23 +10,42 @@ describe('helpers.js unit tests', () => {
 
         expect(result).toEqual(20);
     });
-
-    it('should calculate the tip percentage of the transaction', () => {
-        //init
-        billAmt.value = 20;
-        tipAmt.value = 4;
-        billAmt = billAmt.value;
-        tipAmt = tipAmt.value;
-        let result = calculateTipPercent(billAmt, tipAmt);
-       
-        expect(result).toEqual(20);
-    })
-    //clean-up
     afterEach(function() {
-    billAmt.value = "";
-    tipAmt.value = "";
-    allPayments = {};
-    paymentId = 0;
+        billAmt.value = "";
+        tipAmt.value = "";
+        billAmtInput.value = "";
+        tipAmtInput.value = "";
+        allPayments = {};
+        paymentId = 0;
+        }); 
+    });
+
+describe('helpers.js calculateTipPercent function', () => {
+
+it('should calculate the tip percentage of the transaction', () => {
+    //init
+    billAmt.value = 20;
+    tipAmt.value = 4;
+    billAmt = billAmt.value;
+    tipAmt = tipAmt.value;
+    let result = calculateTipPercent(billAmt, tipAmt);
+    
+    expect(result).toEqual(20);
+
+    
+    });
+
+    // clean-up
+    afterEach(function() {
+        billAmtInput.value = '';
+        tipAmtInput.value = '';
+        paymentTbody.innerHTML = '';
+        summaryTds[0].innerHTML = '';
+        summaryTds[1].innerHTML = '';
+        summaryTds[2].innerHTML = '';
+        serverTbody.innerHTML = '';
+        allPayments = {};
+        paymentId = 0;
     }); 
 });
 
